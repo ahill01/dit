@@ -16,6 +16,12 @@ useEffect(()=>{
   return (
     <div className="App">
       <Router>
+        <Link to="/">Homepage</Link>
+        <br></br>
+        <Link to="/login">{currentUser.id !== undefined ? "Logout": "Login"}</Link>
+        <br></br>
+        <Link to="/inbox">Inbox</Link>
+        <br></br>
         <Routes>
       <Route path="/" element={<LandingPage/>}/>
       <Route path="/login" element={<Login setCurrentUser={setCurrentUser}/>}/>

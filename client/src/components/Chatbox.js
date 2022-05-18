@@ -2,13 +2,18 @@ import React, { useEffect, useState } from "react"
 
 function Chatbox({currentUser,conversation}) {
 const [messages, setMessages]=useState(conversation.messages)
-
 const [newMessage, setNewMessage]=useState("")
 
 function handleChange(e){
     console.log(newMessage)
     setNewMessage(e.target.value)
 }
+
+// useEffect(()=>{
+//     fetch(`/messages/${conversation.id}`)
+//     .then(res => res.json())
+//     .then(msgs => setMessages(msgs))
+// })
 
 function handleSend(e){
     e.preventDefault()
@@ -22,6 +27,7 @@ function handleSend(e){
     })
     .then(res => res.json())
     .then(newMessage => setMessages([...messages,newMessage]))
+    debugger;
     e.target.reset();
    }
 

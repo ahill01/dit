@@ -5,10 +5,10 @@ const [conversations, setConversations]=useState([])
 
 useEffect(() => {
     console.log("fetching")
-    fetch(`/conversations/userindex/1`)
+    fetch(`/conversations/userindex/${currentUser.id}`)
     .then(res => res.json())
     .then(res_conversations => setConversations(res_conversations))
-},[currentUser])
+},[])
 
   return (
     <div className="Inbox">
