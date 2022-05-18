@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  resources :conversations do
-    resources :messages
-  end
+  resources :conversations
+  resources :messages
   resources :users
   
-  get '/conversations/:user_id', to: "conversations#user_index"
+  get '/conversations/userindex/:user_id', to: "conversations#user_index"
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
   get '/me', to: "users#show"

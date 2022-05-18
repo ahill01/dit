@@ -16,9 +16,8 @@ class ConversationsController < ApplicationController
     end
 
     def user_index
-        conversations = Conversation.where(sender_id:params[:user_id] || recipient_id:params[:user_id])
-        
-        render json: conversation, status: :ok
+        conversations = Conversation.where(sender_id:params[:user_id]).or(Conversation.where(recipient_id:params[:user_id]))
+        render json: conversations, status: :ok
     end
 
     private

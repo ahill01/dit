@@ -28,10 +28,8 @@ class MessagesController < ApplicationController
     end
 
     def create
-        @message = @conversation.messages.new(message_params)
-        if @message.save 
-            render json: @conversation, status: :ok
-        end
+       new_message = Message.create!(message_params)
+       render json: new_message
     end
 
     def read
@@ -42,7 +40,7 @@ class MessagesController < ApplicationController
 
     private 
     def message_params
-        params.require(:message).permit(:body, :user_id)
+        params.require(:message).permit(:body, :user_id,:conversation_id)
     end
 
 end
