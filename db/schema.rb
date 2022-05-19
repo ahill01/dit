@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_19_162048) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_19_225346) do
+  create_table "collab_requests", force: :cascade do |t|
+    t.integer "requester_id", null: false
+    t.integer "reciever_id", null: false
+    t.boolean "accepted", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reciever_id"], name: "index_collab_requests_on_reciever_id"
+    t.index ["requester_id"], name: "index_collab_requests_on_requester_id"
+  end
+
+  create_table "collabs", force: :cascade do |t|
+    t.integer "collab_requests_id", null: false
+    t.integer "collaborator_a_id", null: false
+    t.integer "collaborator_b_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["collab_requests_id"], name: "index_collabs_on_collab_requests_id"
+    t.index ["collaborator_a_id"], name: "index_collabs_on_collaborator_a_id"
+    t.index ["collaborator_b_id"], name: "index_collabs_on_collaborator_b_id"
+  end
+
   create_table "conversations", force: :cascade do |t|
     t.integer "sender_id", null: false
     t.integer "recipient_id", null: false
@@ -66,6 +87,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_19_162048) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "collabs", "collab_requests", column: "collab_requests_id"
   add_foreign_key "instruments", "users"
   add_foreign_key "links", "users"
   add_foreign_key "messages", "conversations"
