@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+.community-cards{
+  background-color: rgb(201, 174, 225);
+  width: 100%;
+  padding: 5px 10px;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px);
+  justify-self: center;
+  align-content:center;
+}
+
+.profile-card{
+  background-color: rgb(178, 138, 213);
+  padding: 10px;
+}

@@ -1,13 +1,13 @@
 import React from "react"
 import ProfileCard from "./ProfileCard"
-function LandingPage({allUsers}){
+import SummaryCard from "./SummaryCard"
+
+function LandingPage({currentUser}){
 
     return(
-        <div>
+        <div className="landing">
         <h1>Landing Page</h1>
-        {allUsers.map(user => {
-            return <ProfileCard user={user}/>
-        })}
+        <SummaryCard user={currentUser}></SummaryCard>
         </div>
     )
 }

@@ -1,7 +1,7 @@
 function ProfileCard({user}){
 
     return(
-        <div>
+        <div className="profile-card">
         <h1>{user.name}</h1>
         <h3>{user.pronouns}</h3>
         <h2>Seeking:</h2>
@@ -12,6 +12,8 @@ function ProfileCard({user}){
             return <li>{`${instrument.kind} (${instrument.proficiency})`}</li>
         })}
         </ul>
+        <button>Invite to Collaborate</button>
+        <button>Send a Message</button>
         </div>
     )
 }

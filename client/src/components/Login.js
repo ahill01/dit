@@ -24,10 +24,16 @@ function Login({ setCurrentUser }) {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({credentials}) 
        })
-       .then(res=> res.json())
+       .then(res=> {
+        if(!res.ok) throw new Error(res.status);
+        else return res.json();
+       })
        .then((user) => {
            setCurrentUser(user)
            navigate('/inbox')
+        })
+        .catch((error) =>{
+            console.log('error: '+error)
         })
 }
 

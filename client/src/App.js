@@ -37,11 +37,13 @@ function handleLogout() {
         <br></br>
         <Link to="/buddy">Buddy Board</Link>
         <br></br>
+        <h1>D I T</h1>
+        <h2>Do It Together!</h2>
         <Routes>
-      <Route path="/" element={<LandingPage allUsers={allUsers}/>}/>
+      <Route path="/" element={<LandingPage currentUser={currentUser}/>}/>
       <Route path="/login" element={<Login setCurrentUser={setCurrentUser}/>}/>
       <Route path="/inbox" element={<Inbox currentUser={currentUser}/>}/>
-      <Route path="/community" element={<CommunityBoard/>}/>
+      <Route path="/community" element={<CommunityBoard allUsers={allUsers}/>}/>
       <Route path="/buddy" element={<BuddyBoard/>}/>
       </Routes>
       </Router>

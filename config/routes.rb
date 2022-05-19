@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :collab_requests
+  resources :collabs
   resources :links
   resources :instruments
   resources :conversations
