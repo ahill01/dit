@@ -1,5 +1,5 @@
 import React from "react"
-function LandingPage({allUsers}){
+function CommunityBoard({allUsers}){
 
     return(
         <div>
@@ -11,4 +11,4 @@ function LandingPage({allUsers}){
     )
 }
 
-export default LandingPage
+export default CommunityBoard

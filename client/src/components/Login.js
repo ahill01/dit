@@ -15,7 +15,6 @@ function Login({ setCurrentUser }) {
         } else {
             setCredentials(prevState => ({...prevState, password:e.target.value}))
         }
-        console.log(credentials)
     }
 
     function handleSubmit(e){
