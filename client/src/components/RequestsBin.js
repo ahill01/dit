@@ -17,8 +17,8 @@ const [collabRequests, setCollabRequests]=useState([])
     return(
         <div>
         <h1>Landing Page</h1>
-        {friends.map(friend => {
-            return <h2>{friend.name}</h2>
+        {collabRequests.map(request => {
+            return <h2>{request.id}</h2>
         })}
         </div>
     )

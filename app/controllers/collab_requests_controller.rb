@@ -1,8 +1,11 @@
 class CollabRequestsController < ApplicationController
 
     def index
-        if params.include?(:user_id) do
-            reqests = CollabRequest.where("collaborator_a_id = ? OR collaborator_b = ?", params[:user_id])
+        byebug
+        if params.include?(:user_id) then
+            puts("inside loop")
+            requests = CollabRequest.where("requester_id = ? OR reciever_id = ?", params[:user_id],params[:user_id])
+            byebug
             render json: requests, status: :ok
         end
     end
