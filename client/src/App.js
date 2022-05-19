@@ -42,7 +42,7 @@ function handleLogout() {
       <Route path="/login" element={<Login setCurrentUser={setCurrentUser}/>}/>
       <Route path="/inbox" element={<Inbox currentUser={currentUser}/>}/>
       <Route path="/community" element={<CommunityBoard/>}/>
-      <Route path="/community" element={<BuddyBoard/>}/>
+      <Route path="/buddy" element={<BuddyBoard/>}/>
       </Routes>
       </Router>
     </div>

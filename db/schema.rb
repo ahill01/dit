@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_17_162300) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_19_162048) do
   create_table "conversations", force: :cascade do |t|
     t.integer "sender_id", null: false
     t.integer "recipient_id", null: false
@@ -18,6 +18,25 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_17_162300) do
     t.datetime "updated_at", null: false
     t.index ["recipient_id"], name: "index_conversations_on_recipient_id"
     t.index ["sender_id"], name: "index_conversations_on_sender_id"
+  end
+
+  create_table "instruments", force: :cascade do |t|
+    t.string "kind"
+    t.integer "user_id", null: false
+    t.string "proficiency", default: "beginner"
+    t.boolean "primary", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_instruments_on_user_id"
+  end
+
+  create_table "links", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "kind"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_links_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -35,10 +54,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_17_162300) do
     t.string "name"
     t.string "username"
     t.string "password_digest"
+    t.string "pronouns"
+    t.string "gender"
+    t.string "collab_type"
+    t.string "genre"
+    t.string "email"
+    t.boolean "remote", default: false
+    t.string "homebase"
+    t.string "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "instruments", "users"
+  add_foreign_key "links", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
 end
