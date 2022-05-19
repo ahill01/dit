@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  resources :collab_requests
-  resources :collabs
+
   resources :links
   resources :instruments
   resources :conversations
   resources :messages
-  resources :users
+  resources :users do 
+    resources :collab_requests
+    resources :collabs
+  end
   
   get '/conversations/userindex/:user_id', to: "conversations#user_index"
   post '/login', to: "sessions#create"
