@@ -1,9 +1,9 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import RequestsBin from "./RequestsBin"
 import ActiveCollabs from "./ActiveCollabs"
 
 function BuddyBoard({currentUser}){
-
+   
     return(
         <div>
         <RequestsBin currentUser={currentUser}/>

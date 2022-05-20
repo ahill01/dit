@@ -4,7 +4,6 @@ function Inbox({currentUser}) {
 const [conversations, setConversations]=useState([])
 
 useEffect(() => {
-    console.log("fetching")
     fetch(`/conversations/userindex/${currentUser.id}`)
     .then(res => res.json())
     .then(res_conversations => setConversations(res_conversations))

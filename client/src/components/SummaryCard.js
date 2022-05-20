@@ -6,7 +6,7 @@ function SummaryCard({user}){
         <h3>{user.pronouns}</h3>
         <h2>Seeking:</h2>
         <h3>{user.collab_type}</h3>
-        <h2>{`primary instrument:${user.primary_inst.kind}`}</h2>
+        <h2>{`primary instrument:${user.primary_inst[0].kind}`}</h2>
         <button>Invite to Collaborate</button>
         <button>Send a Message</button>
         </div>

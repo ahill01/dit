@@ -1,29 +1,36 @@
 import React, {useState, useEffect} from "react"
-function ActiveCollabs({currentUser}){
-const [collabRequests, setCollabRequests]=useState([])
+function RequestsBin({currentUser}){
+    const [collabRequests, setCollabRequests]=useState([])
 
     useEffect(()=>{
+        console.log("fetching")
         fetch(`/users/${currentUser.id}/collab_requests`)
         .then(res => {
             if(!res.ok) throw new Error(res.status);
             else return res.json();
         })
-        .then(requests => setCollabRequests(requests))
+        .then(requests => {
+            console.log(requests)
+            setCollabRequests(requests)})
         .catch((error) =>{
             console.log('error: '+error)
         })
-      },[])
+      },[currentUser])
 
     return(
         <div>
-        <h1>Landing Page</h1>
+        <h1>Collab Requests</h1>
         {collabRequests.map(request => {
-            return <h2>{request.id}</h2>
+            return (
+            <div className="req">
+            <h2>{`${request.reciever.username}`}</h2>
+            <button>✅ accept</button> <button>❌ reject</button>
+            </div>)
         })}
         </div>
     )
 }
 
-export default ActiveCollabs
+export default RequestsBin
 
   
