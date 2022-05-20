@@ -4,8 +4,8 @@ function ActiveCollabs({currentUser}){
     return(
         <div>
         <h1>Landing Page</h1>
-        {friends.map(friend => {
-            return <h2>{friend.name}</h2>
+        {currentUser.map(user => {
+            return <h2>{user.name}</h2>
         })}
         </div>
     )
