@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from "react"
+import Collab from "./Collab"
 
-function ActiveCollabs({currentUser}){
-const [collabs, setCollabs] = useState([])
+function ActiveCollabs({currentUser,collabs,setCollabs}){
+
     useEffect(()=>{
-        console.log("fetching")
         fetch(`/users/${currentUser.id}/collabs`)
         .then(res => {
             if(!res.ok) throw new Error(res.status);
@@ -14,11 +14,12 @@ const [collabs, setCollabs] = useState([])
             console.log('error: '+error)
         })
       },[])
+
     return(
         <div>
         <h1>Collabs</h1>
         {collabs.map(collab=> {
-            return <h2>{collab.name}</h2>
+            return <Collab collab={collab} currentUser={currentUser}/>
         })}
         </div>
     )

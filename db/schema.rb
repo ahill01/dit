@@ -22,12 +22,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_19_225346) do
   end
 
   create_table "collabs", force: :cascade do |t|
-    t.integer "collab_requests_id", null: false
     t.integer "collaborator_a_id", null: false
     t.integer "collaborator_b_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["collab_requests_id"], name: "index_collabs_on_collab_requests_id"
     t.index ["collaborator_a_id"], name: "index_collabs_on_collaborator_a_id"
     t.index ["collaborator_b_id"], name: "index_collabs_on_collaborator_b_id"
   end
@@ -87,7 +85,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_19_225346) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "collabs", "collab_requests", column: "collab_requests_id"
   add_foreign_key "instruments", "users"
   add_foreign_key "links", "users"
   add_foreign_key "messages", "conversations"

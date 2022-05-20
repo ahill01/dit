@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :instruments
   resources :conversations
   resources :messages
-  resources :users do 
+  resources :users, shallow: true do 
     resources :collab_requests
     resources :collabs
   end
