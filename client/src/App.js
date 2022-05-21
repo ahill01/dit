@@ -7,6 +7,7 @@ import LandingPage from "./components/LandingPage"
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import CommunityBoard from './components/CommunityBoard';
 import BuddyBoard from './components/BuddyBoard';
+import SignupForm from "./components/SignupForm"
 
 function App() {
 const [currentUser, setCurrentUser]=useState({})
@@ -30,6 +31,7 @@ function handleLogout() {
         <Link to="/">Homepage</Link>
         <br></br>
         <Link to="/login" onClick={handleLogout}>{currentUser.id !== undefined ? "Logout": "Login"}</Link>
+        <Link to="/signup">Sign up!</Link>
         <br></br>
         <Link to="/inbox">Inbox</Link>
         <br></br>
@@ -42,6 +44,7 @@ function handleLogout() {
         <Routes>
       <Route path="/" element={<LandingPage currentUser={currentUser}/>}/>
       <Route path="/login" element={<Login setCurrentUser={setCurrentUser}/>}/>
+      <Route path="/signup" element={<SignupForm/>}/>
       <Route path="/inbox" element={<Inbox currentUser={currentUser}/>}/>
       <Route path="/community" element={<CommunityBoard allUsers={allUsers}/>}/>
       <Route path="/buddy" element={<BuddyBoard currentUser={currentUser}/>}/>
