@@ -31,6 +31,7 @@ function handleLogout() {
         <Link to="/">Homepage</Link>
         <br></br>
         <Link to="/login" onClick={handleLogout}>{currentUser.id !== undefined ? "Logout": "Login"}</Link>
+        <br></br>
         <Link to="/signup">Sign up!</Link>
         <br></br>
         <Link to="/inbox">Inbox</Link>
