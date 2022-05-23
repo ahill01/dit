@@ -8,6 +8,7 @@ import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import CommunityBoard from './components/CommunityBoard';
 import BuddyBoard from './components/BuddyBoard';
 import SignupForm from "./components/SignupForm"
+import ProfileCard from './components/ProfileCard';
 
 function App() {
 const [currentUser, setCurrentUser]=useState({})
@@ -48,9 +49,10 @@ function handleLogout() {
       <Route path="/signup" element={<SignupForm/>}/>
       <Route path="/inbox" element={<Inbox currentUser={currentUser}/>}/>
       <Route path="/community" element={<CommunityBoard allUsers={allUsers}/>}/>
+      <Route path="community/:userId" element={<ProfileCard/>}/>
       <Route path="/buddy" element={<BuddyBoard currentUser={currentUser}/>}/>
+  
       </Routes>
-      <Route to="/inbox/:conversation_id" element={<}></Route>
       </Router>
     </div>
   );

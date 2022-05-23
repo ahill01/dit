@@ -1,4 +1,21 @@
-function ProfileCard({user}){
+import React, {useEffect, useState} from "react";
+import {useNavigate, useParams} from "react-router-dom"
+
+function ProfileCard({}){
+const [user,setUser] = useState({})
+const [instruments, setInstruments]=useState([])
+let navigate= useNavigate();
+let {userId} = useParams()
+
+useEffect(() => {
+    debugger;
+    fetch(`/users/${userId}`)
+    .then(res => res.json())
+    .then(showUser => {
+        debugger;
+        setUser(showUser)
+        setInstruments(showUser.instruments)})
+    },[])
 
     return(
         <div className="profile-card">
@@ -8,7 +25,7 @@ function ProfileCard({user}){
         <h3>{user.collab_type}</h3>
         <h2>plays:</h2>
         <ul>
-        {user.instruments.map( instrument=> {
+        {instruments.map(instrument=> {
             return <li>{`${instrument.kind} (${instrument.proficiency})`}</li>
         })}
         </ul>

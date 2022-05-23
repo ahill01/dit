@@ -12,8 +12,7 @@ Rails.application.routes.draw do
   get '/conversations/userindex/:user_id', to: "conversations#user_index"
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
-  get '/me', to: "users#show"
-
+  get '/me', to: "users#show_loggedin_user"
   patch '/messages/:id/read', to: "messages#read"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
