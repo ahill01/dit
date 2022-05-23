@@ -40,19 +40,19 @@ function handleSubmit(e){
 
 
     return(<form onSubmit={handleSubmit}>
-        <label for="username">Username:</label><br></br>
+        <label htmlFor="username">Username:</label><br></br>
         <input type="text" name="username" onChange={handleChange}></input>
         <br></br>
-        <label for="password">Password:</label><br></br>
+        <label htmlFor="password">Password:</label><br></br>
         <input type="password" name="password" onChange={handleChange}></input>
         <br></br>
-        <label for="name">Name:</label> <br></br>
+        <label htmlFor="name">Name:</label> <br></br>
         <input type="text" name="name" onChange={handleChange}></input>
         <br></br>
-        <label for="email">Email:</label><br></br>
+        <label htmlFor="email">Email:</label><br></br>
          <input type="text" name="email" onChange={handleChange}></input>
          <br></br>
-        <label for="pronouns">Pronouns:</label>
+        <label htmlFor="pronouns">Pronouns:</label>
         <br></br>
         <select name="pronouns" onChange={handleChange}>
             <option value="she/her">She/Her</option>
@@ -63,11 +63,11 @@ function handleSubmit(e){
             <option value="">{`Neopronouns (specify below)`}</option>
          </select>
          <br></br>
-         <label for="neopronouns">Neopronouns:</label>
+         <label htmlFor="neopronouns">Neopronouns:</label>
          <br></br>
          <input type="text" name="neopronouns" onChange={handleChange}></input>
          <br></br>
-         <label for="gender">Gender:</label>
+         <label htmlFor="gender">Gender:</label>
          <br></br>
          <select name="gender" onChange={handleChange}>
             <option value="female">Female</option>
@@ -75,7 +75,7 @@ function handleSubmit(e){
             <option value="nonbinary">Nonbinary</option>
          </select>
          <br></br>
-         <label for="collab_type">I'm looking for a:</label>
+         <label htmlFor="collab_type">I'm looking htmlFor a:</label>
          <br></br>
          <select name="collab_type" onChange={handleChange}>
             <option value="casual jam buddy">casual jam buddy</option>
@@ -85,22 +85,22 @@ function handleSubmit(e){
             <option value="whatever!">whatever!</option>
          </select>
          <br></br>
-         <label for="genre" onChange={handleChange}>Genre:</label>
+         <label htmlFor="genre" onChange={handleChange}>Genre:</label>
          <br></br>
          <input type="text" name="genre"></input>
          <br></br>
-         <label for="homebase">Homebase (current city):</label>
+         <label htmlFor="homebase">Homebase (current city):</label>
          <br></br>
          <input type="text" name="homebase"></input>
          <br></br>
-         <label for="remote">Open to remote collab:</label>
+         <label htmlFor="remote">Open to remote collab:</label>
          <br></br>
          <select name="remote" onChange={handleChange}>
             <option value="false">no</option>
             <option value="true">yes</option>
         </select>
         <br></br>
-         <label for="bio">Bio:</label>
+         <label htmlFor="bio">Bio:</label>
          <br></br>
          <input type="bio" name="bio" onChange={handleChange}></input>
          <br></br>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 
 function Chatbox({currentUser,conversation}) {
+    
 const [messages, setMessages]=useState(conversation.messages)
 const [newMessage, setNewMessage]=useState("")
 
