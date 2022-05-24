@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import Chatbox from "./Chatbox"
 import ChatSummary from "./ChatSummary"
-function Inbox({currentUser}) {
+function Inbox({currentUser,setCurrentConvo}) {
 const [conversations, setConversations]=useState([])
 
 useEffect(() => {
@@ -13,7 +13,7 @@ useEffect(() => {
   return (
     <div className="Inbox">
         <h1>{`${currentUser.name}'s Inbox`}</h1>
-        {conversations.map(conversation => <ChatSummary id= {conversation.id} conversation={conversation} currentUser={currentUser}/>)}
+        {conversations.map(conversation => <ChatSummary id= {conversation.id} conversation={conversation} currentUser={currentUser} setCurrentConvo={setCurrentConvo}/>)}
     </div>
   );
 }

@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from "react"
 import {useNavigate, useParams} from "react-router-dom"
 
-function ChatSummary({currentUser,conversation}){
+function ChatSummary({currentUser,conversation,setCurrentConvo}){
 let navigate= useNavigate();
 
 function renderChatbox(){
+    setCurrentConvo(conversation)
     navigate(`/inbox/${conversation.id}`)
 }
 

@@ -14,6 +14,7 @@ import Chatbox from './components/Chatbox';
 function App() {
 const [currentUser, setCurrentUser]=useState({})
 const [allUsers,setAllUsers] = useState([])
+const [currentConvo,setCurrentConvo]=useState({})
 
 useEffect(()=>{
   fetch('/users')
@@ -48,8 +49,8 @@ function handleLogout() {
       <Route path="/" element={<LandingPage currentUser={currentUser}/>}/>
       <Route path="/login" element={<Login setCurrentUser={setCurrentUser}/>}/>
       <Route path="/signup" element={<SignupForm/>}/>
-      <Route path="/inbox" element={<Inbox currentUser={currentUser}/>}/>
-      <Route path="inbox/:currentConvoId" element={<Chatbox currentUser={currentUser}/>}/>
+      <Route path="/inbox" element={<Inbox currentUser={currentUser} setCurrentConvo={setCurrentConvo}/>}/>
+      <Route path="inbox/:currentConvoId" element={<Chatbox currentUser={currentUser} currentConvo={currentConvo}/>}/>
       <Route path="/community" element={<CommunityBoard allUsers={allUsers}/>}/>
       <Route path="community/:userId" element={<ProfileCard currentUser={currentUser}/>}/>
       <Route path="/buddy" element={<BuddyBoard currentUser={currentUser}/>}/>

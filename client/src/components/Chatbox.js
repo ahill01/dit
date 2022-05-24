@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react"
 import {useNavigate, useParams} from "react-router-dom"
 
-function Chatbox({currentUser}) {
-const [currentConvo,setCurrentConvo]=useState({})
+function Chatbox({currentUser,currentConvo}) {
 const [messages, setMessages]=useState([])
 const [newMessage, setNewMessage]=useState("")
 
