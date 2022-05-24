@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react"
+import {useNavigate, useParams} from "react-router-dom"
 
-function Chatbox({currentUser,conversation}) {
-    
+function Chatbox({currentUser}) {
+
+let {conversationId} = useParams()
+const[conversation, setConversation]=useState({})
 const [messages, setMessages]=useState(conversation.messages)
 const [newMessage, setNewMessage]=useState("")
 
@@ -9,11 +12,8 @@ function handleChange(e){
     setNewMessage(e.target.value)
 }
 
-// useEffect(()=>{
-//     fetch(`/messages/${conversation.id}`)
-//     .then(res => res.json())
-//     .then(msgs => setMessages(msgs))
-// })
+let navigate= useNavigate();
+let {userId} = useParams()
 
 function handleSend(e){
     e.preventDefault()

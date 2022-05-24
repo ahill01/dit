@@ -8,11 +8,9 @@ let navigate= useNavigate();
 let {userId} = useParams()
 
 useEffect(() => {
-    debugger;
     fetch(`/users/${userId}`)
     .then(res => res.json())
     .then(showUser => {
-        debugger;
         setUser(showUser)
         setInstruments(showUser.instruments)})
     },[])

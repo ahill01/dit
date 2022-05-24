@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import Chatbox from "./Chatbox"
+import ChatSummary from "./ChatSummary"
 function Inbox({currentUser}) {
 const [conversations, setConversations]=useState([])
 
@@ -12,7 +13,7 @@ useEffect(() => {
   return (
     <div className="Inbox">
         <h1>{`${currentUser.name}'s Inbox`}</h1>
-        {conversations.map(conversation => <Chatbox id= {conversation.id} conversation={conversation} currentUser={currentUser}/>)}
+        {conversations.map(conversation => <ChatSummary id= {conversation.id} conversation={conversation} currentUser={currentUser}/>)}
         <div className="convo-box">
           <p>Chat goes here</p>
         </div>
