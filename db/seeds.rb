@@ -1,11 +1,6 @@
 puts("seeding users!")
-phoebe = User.create!(name:"Phoebe",username:"Phoebe_Bridgers",password:"phebz",pronouns:"she/her",gender:"female",collab_type:"band member(co-writer)",email:"phoebefuckingbridgers@phoebefuckingbridgers.com",genre:"sad girl indie",remote:false,homebase:"Los Angeles, CA",bio:"the artist currently known as phoebe bridgers")
-
-pheobe.avatar.attach(
-    io:(File.open('../client/public/placeholder_avi.jpeg')),
-    filename:'placeholder_avi.jpeg',
-    content_type:'application/png'
-)
+ 
+User.create!(name:"Phoebe",username:"Phoebe_Bridgers",password:"phebz",pronouns:"she/her",gender:"female",collab_type:"band member(co-writer)",email:"phoebefuckingbridgers@phoebefuckingbridgers.com",genre:"sad girl indie",remote:false,homebase:"Los Angeles, CA",bio:"the artist currently known as phoebe bridgers")
 
 User.create!(name:"Lucy",username:"Lucy_Dacus",password:"nightshift",pronouns:"she/her",gender:"female",collab_type:"whatever!",email:"ldacus@gmail.com",genre:"sad girl indie",remote:false,homebase:"Chicago, IL",bio:"lucky duckus")
 
