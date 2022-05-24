@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react"
 
-function Collab({currentUser,collab}){
+function CollabCard({currentUser,collab}){
     function displayName(){
         if(currentUser.name===collab.collaborator_a.name){
         return collab.collaborator_b.name
@@ -8,11 +8,11 @@ function Collab({currentUser,collab}){
         else return collab.collaborator_a.name
     }
     return(
-        <div className="collab">
+        <div className="container-md collab">
         <h2>{displayName()}</h2>
         <p>info about collab will go here</p>
         </div>
     )
 }
 
-export default Collab
+export default CollabCard

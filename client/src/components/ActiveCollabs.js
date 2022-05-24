@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-import Collab from "./Collab"
+import CollabCard from "./CollabCard"
 
 function ActiveCollabs({currentUser,collabs,setCollabs}){
 
@@ -19,7 +19,7 @@ function ActiveCollabs({currentUser,collabs,setCollabs}){
         <div>
         <h1>Collabs</h1>
         {collabs.map(collab=> {
-            return <Collab collab={collab} currentUser={currentUser}/>
+            return <CollabCard collab={collab} currentUser={currentUser}/>
         })}
         </div>
     )

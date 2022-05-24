@@ -10,6 +10,8 @@ import BuddyBoard from './components/BuddyBoard';
 import SignupForm from "./components/SignupForm"
 import ProfileCard from './components/ProfileCard';
 import Chatbox from './components/Chatbox';
+import Header from './components/Header';
+import Navbar from './components/Navbar';
 
 function App() {
 const [currentUser, setCurrentUser]=useState({})
@@ -31,20 +33,9 @@ function handleLogout() {
   return (
     <div className="App">
       <Router>
-        <Link to="/">Homepage</Link>
-        <br></br>
-        <Link to="/login" onClick={handleLogout}>{currentUser.id !== undefined ? "Logout": "Login"}</Link>
-        <br></br>
-        <Link to="/signup">Sign up!</Link>
-        <br></br>
-        <Link to="/inbox">Inbox</Link>
-        <br></br>
-        <Link to="/community">Community Board</Link>
-        <br></br>
-        <Link to="/buddy">Buddy Board</Link>
-        <br></br>
-        <h1>D I T</h1>
-        <h2>Do It Together!</h2>
+        <Navbar currentUser={currentUser} handleLogout={handleLogout}/>
+        <Header/>
+        
         <Routes>
       <Route path="/" element={<LandingPage currentUser={currentUser}/>}/>
       <Route path="/login" element={<Login setCurrentUser={setCurrentUser}/>}/>

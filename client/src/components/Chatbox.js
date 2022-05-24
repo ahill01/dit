@@ -35,11 +35,15 @@ function handleSend(e){
         e.target.reset();
     }
    
-
+    function messageClass(message){
+      if(message.sender === currentUser.name){
+        return "self"
+      } else return "sender"
+    }
   return (
-    <div className="chatbox">
+    <div className="container-sm">
         <h1>{currentConvo.sender === currentUser.name ? currentConvo.recipient : currentConvo.sender}</h1>
-       {messages.map(message => <p>{`${message.sender} said: ${message.body}`}</p>)}
+       {messages.map(message => <p className={messageClass(message)}>{`${message.sender} said: ${message.body}`}</p>)}
        <form onSubmit={handleSend}>
         <input type="text" value={newMessage} onChange={handleChange}></input>
        <button type="submit">send</button>
