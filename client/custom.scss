@@ -1,11 +1,8 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 
-.landing
-{
-	$background-image: url('./public/placeholder_avi.jpeg');
-	$background-size: cover ;
+	$bg-primary: #43AA8B;
 	$background-position: center;
-}
+
 	.img-overlay
 	{
 		background-color: rgba(0,0,0,0.8) ;

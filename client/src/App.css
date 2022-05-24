@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #F8ECD1
 }
 
 .App-logo {
@@ -70,6 +71,9 @@
   text-align:right;
 }
 
-.container-sm{
-
+.chatbox{
+  background-color:rgb(201, 150, 207)
+}
+.landing{
+  background-color:#624763
 }
