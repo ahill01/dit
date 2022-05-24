@@ -14,9 +14,6 @@ useEffect(() => {
     <div className="Inbox">
         <h1>{`${currentUser.name}'s Inbox`}</h1>
         {conversations.map(conversation => <ChatSummary id= {conversation.id} conversation={conversation} currentUser={currentUser}/>)}
-        <div className="convo-box">
-          <p>Chat goes here</p>
-        </div>
     </div>
   );
 }

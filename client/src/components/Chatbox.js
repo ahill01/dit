@@ -2,18 +2,21 @@ import React, { useEffect, useState } from "react"
 import {useNavigate, useParams} from "react-router-dom"
 
 function Chatbox({currentUser}) {
-
-let {conversationId} = useParams()
-const[conversation, setConversation]=useState({})
-const [messages, setMessages]=useState(conversation.messages)
+const [currentConvo,setCurrentConvo]=useState({})
+const [messages, setMessages]=useState([])
 const [newMessage, setNewMessage]=useState("")
 
 function handleChange(e){
     setNewMessage(e.target.value)
 }
 
-let navigate= useNavigate();
-let {userId} = useParams()
+let {currentConvoId} = useParams()
+
+useEffect(() => {
+    fetch(`/conversations/${currentConvoId}/messages`)
+    .then(res => res.json())
+    .then(msgs => setMessages(msgs))
+  },[])
 
 function handleSend(e){
     e.preventDefault()
@@ -23,7 +26,7 @@ function handleSend(e){
         body: JSON.stringify({
         body:newMessage,
         user_id:currentUser.id,
-        conversation_id:conversation.id})
+        conversation_id:currentConvo.id})
     })
     .then(res => res.json())
     .then(newMessage => {
@@ -35,8 +38,8 @@ function handleSend(e){
    
 
   return (
-    <div className="Inbox">
-        <h1>{conversation.sender === currentUser.name ? conversation.recipient : conversation.sender}</h1>
+    <div className="chatbox">
+        <h1>{currentConvo.sender === currentUser.name ? currentConvo.recipient : currentConvo.sender}</h1>
        {messages.map(message => <p>{`${message.sender} said: ${message.body}`}</p>)}
        <form onSubmit={handleSend}>
         <input type="text" value={newMessage} onChange={handleChange}></input>

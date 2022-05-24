@@ -5,21 +5,20 @@ class MessagesController < ApplicationController
 
     def index
         @messages = @conversation.messages
-        if @messages.length >10
-            @over_ten = true
-            @messages = @messages[-10..-1]
-        end
-        if params[:m]
-            @over_ten = false
-            @messages = @conversation.messages
-        end
-        if @messages.last
-            if@messages.last.user_id != current_user.index
-            @messages.last.read = true
-            end
-        end
-    @message = @conversation.messages.new
-    render json: @messages 
+        # if @messages.length >10
+        #     @over_ten = true
+        #     @messages = @messages[-10..-1]
+        # end
+        # if params[:m]
+        #     @over_ten = false
+        #     @messages = @conversation.messages
+        # end
+        # if @messages.last
+        #     if@messages.last.user_id != current_user.index
+        #     @messages.last.read = true
+        #     end
+        # end
+    render json: @messages, status: :ok
     end
 
     def new 

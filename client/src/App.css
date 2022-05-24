@@ -52,3 +52,12 @@
   background-color: rgb(178, 138, 213);
   padding: 10px;
 }
+
+.chatsummary{
+  background-color: rgb(174, 174, 219);
+}
+
+.collab{
+  background-color: aquamarine;
+  width: 50%;
+}

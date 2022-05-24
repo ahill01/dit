@@ -4,17 +4,13 @@ import {useNavigate, useParams} from "react-router-dom"
 function ChatSummary({currentUser,conversation}){
 let navigate= useNavigate();
 
-// useEffect(() => {
-//     fetch(`/users/${userId}`)
-//     .then(res => res.json())
-//     .then(showUser => {
-//         setUser(showUser)
-//         setInstruments(showUser.instruments)})
-//     },[])
+function renderChatbox(){
+    navigate(`/inbox/${conversation.id}`)
+}
+
     return(
-        <div>
-        <h1>{conversation.sender}</h1>
-       
+        <div className="chatsummary" onClick={renderChatbox}>
+        <h2>{conversation.sender === currentUser.name ? conversation.recipient : conversation.sender}</h2> <p>{conversation.last_message}</p>
         </div>
     )
 }

@@ -16,8 +16,8 @@ class ConversationsController < ApplicationController
     end
 
     def user_index
-        conversations = Conversation.where(sender_id:params[:user_id]).or(Conversation.where(recipient_id:params[:user_id]))
-        render json: conversations, serializer: ConversationSummarySerializer, status: :ok
+        user_conversations = Conversation.where(sender_id:params[:user_id]).or(Conversation.where(recipient_id:params[:user_id]))
+        render json: user_conversations, status: :ok
     end
 
     private

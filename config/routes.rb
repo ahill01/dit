@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   resources :links
   resources :instruments
-  resources :conversations
-  resources :messages
+  resources :conversations, shallow: true do 
+    resources :messages
+  end
   resources :users, shallow: true do 
     resources :collab_requests
     resources :collabs
