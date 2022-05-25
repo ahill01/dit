@@ -1,7 +1,7 @@
 import React from "react"
 import {useNavigate, useParams} from "react-router-dom"
 
-function SummaryCard({user}){
+function SummaryCard({user,currentUser,createCollab}){
 let navigate = useNavigate() 
 
 function renderProfileCard(){
@@ -10,7 +10,7 @@ function renderProfileCard(){
     navigate(`/community/${user.id}`)
 
 }
-// debugger;
+
     return(
         <div className="profile-card" >
         <div className="demo" onClick={renderProfileCard}>
@@ -20,8 +20,7 @@ function renderProfileCard(){
         <h3>{user.collab_type}</h3>
         <h2>{`primary instrument`}</h2>
         </div>
-        <button>Invite to Collaborate</button>
-        <button>Send a Message</button>
+        <button onClick={() => createCollab(currentUser.id,user.id)}>Invite to Collaborate</button>
         </div>
     )
 }

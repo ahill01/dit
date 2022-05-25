@@ -21,14 +21,32 @@ const [currentConvo,setCurrentConvo]=useState({})
 useEffect(()=>{
   fetch('/users')
   .then(res => res.json())
-  .then(users => setAllUsers(users))
-},[])
+  .then(users => {
+    if(currentUser){
+      let filterCurrent = users.filter(user => user.id !== currentUser.id)
+      return setAllUsers(filterCurrent)
+    } else setAllUsers(users) }
+    )
+},[currentUser])
 
 function handleLogout() {
   fetch("/logout", {
       method: "DELETE",
       }).then(setCurrentUser({}))
   }
+
+  function createCollab(requesterId,recieverId){
+    console.log("making collab")
+        fetch(`/users/${currentUser.id}/collabs`,{
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+            collaborator_a_id:requesterId,
+            collaborator_b_id:recieverId})
+        })
+        .then(res => res.json())
+        .then(collab => alert(`collab request sent to {collab.collaborator_b.name}`));
+}
 
   return (
     <div className="App">
@@ -42,8 +60,8 @@ function handleLogout() {
       <Route path="/signup" element={<SignupForm/>}/>
       <Route path="/inbox" element={<Inbox currentUser={currentUser} setCurrentConvo={setCurrentConvo}/>}/>
       <Route path="inbox/:currentConvoId" element={<Chatbox currentUser={currentUser} currentConvo={currentConvo}/>}/>
-      <Route path="/community" element={<CommunityBoard allUsers={allUsers}/>}/>
-      <Route path="community/:userId" element={<ProfileCard currentUser={currentUser}/>}/>
+      <Route path="/community" element={<CommunityBoard allUsers={allUsers} currentUser={currentUser} createCollab={createCollab}/>}/>
+      <Route path="community/:userId" element={<ProfileCard  createCollab={createCollab}/>}/>
       <Route path="/buddy" element={<BuddyBoard currentUser={currentUser}/>}/>
   
       </Routes>
