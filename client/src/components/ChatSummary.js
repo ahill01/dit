@@ -3,6 +3,7 @@ import {useNavigate, useParams} from "react-router-dom"
 
 function ChatSummary({currentUser,conversation,setCurrentConvo}){
 let navigate= useNavigate();
+let me = conversation.sender === currentUser.name
 
 function renderChatbox(){
     setCurrentConvo(conversation)
@@ -11,7 +12,7 @@ function renderChatbox(){
 
     return(
         <div className="chatsummary" onClick={renderChatbox}>
-        <h2>{conversation.sender === currentUser.name ? conversation.recipient : conversation.sender}</h2> <p>{conversation.last_message}</p>
+        <h2>{me ? conversation.recipient : conversation.sender}</h2> <p>{me ? `${conversation.last_message.sender} said: ${conversation.last_message.body}`:`you said: ${conversation.last_message.body}`}</p>
         </div>
     )
 }

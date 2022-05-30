@@ -15,10 +15,11 @@ function renderProfileCard(){
         <div className="profile-card" >
         <div className="demo" onClick={renderProfileCard}>
         <h1>{user.name}</h1>
-        <h3>{user.pronouns}</h3>
-        <h2>Seeking:</h2>
-        <h3>{user.collab_type}</h3>
-        <h2>{`primary instrument`}</h2>
+        <h4>{user.pronouns}</h4>
+        <h3>Seeking:</h3>
+        <p>{user.collab_type}</p>
+        <h3>{`primary instrument:`}</h3>
+        <p>{user.primary_instrument}</p>
         </div>
         <button onClick={() => createCollab(currentUser.id,user.id)}>Invite to Collaborate</button>
         </div>

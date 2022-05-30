@@ -9,10 +9,5 @@ class User < ApplicationRecord
 
   has_many :instruments
   has_many :links
-
-  def primary_instrument
-   primary = self.instruments.where(primary:true).limit(1)
-   return primary.kind
-  end
   
 end

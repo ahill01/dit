@@ -12,6 +12,7 @@ import ProfileCard from './components/ProfileCard';
 import Chatbox from './components/Chatbox';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
+import SetupWizard from "./components/SetupWizard"
 
 function App() {
 const [currentUser, setCurrentUser]=useState({})
@@ -57,7 +58,7 @@ function handleLogout() {
         <Routes>
       <Route path="/" element={<LandingPage currentUser={currentUser}/>}/>
       <Route path="/login" element={<Login setCurrentUser={setCurrentUser}/>}/>
-      <Route path="/signup" element={<SignupForm/>}/>
+      <Route path="/signup" element={<SetupWizard/>}/>
       <Route path="/inbox" element={<Inbox currentUser={currentUser} setCurrentConvo={setCurrentConvo}/>}/>
       <Route path="inbox/:currentConvoId" element={<Chatbox currentUser={currentUser} currentConvo={currentConvo}/>}/>
       <Route path="/community" element={<CommunityBoard allUsers={allUsers} currentUser={currentUser} createCollab={createCollab}/>}/>

@@ -49,7 +49,7 @@ function Login({ setCurrentUser }) {
                      </label>
                      <label>
                          Password:
-                         <input type='text' name='password' value={credentials.password} onChange={handleChange} />
+                         <input type='password' name='password' value={credentials.password} onChange={handleChange} />
                      </label>
             
                      <button className='loginButton'>Sign In</button>

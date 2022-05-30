@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import ChatSummary from "./ChatSummary"
+
 function Inbox({currentUser,setCurrentConvo}) {
 const [conversations, setConversations]=useState([])
 

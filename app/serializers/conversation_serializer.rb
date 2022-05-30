@@ -11,6 +11,8 @@ class ConversationSerializer < ActiveModel::Serializer
   end
 
   def last_message
-    return self.object.messages.last.body
+    msg_body = self.object.messages.last.body
+    msg_sender = User.find(self.object.messages.last.user_id).name
+    return {:body => msg_body,:sender => msg_sender}
   end
 end
