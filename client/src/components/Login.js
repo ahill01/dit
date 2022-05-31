@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import {useNavigate} from 'react-router-dom';
 
-function Login({ setCurrentUser }) {
+function Login({ setCurrentUser, setLoggedIn }) {
     const [credentials, setCredentials] = useState({
         username:"",
         password:""
@@ -30,6 +30,7 @@ function Login({ setCurrentUser }) {
        })
        .then((user) => {
            setCurrentUser(user)
+           setLoggedIn(true)
            navigate('/inbox')
         })
         .catch((error) =>{

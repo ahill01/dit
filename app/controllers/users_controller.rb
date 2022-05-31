@@ -12,7 +12,7 @@ class UsersController < ApplicationController
         user = User.find_by(id: session[:user_id])
         if user 
            user.update(user_params)
-           render json: user, status: 204
+           render json: user, status: :ok
         else
             render json: {error: "Not authorized"}, status: :unauthorized
         end

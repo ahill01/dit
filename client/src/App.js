@@ -18,7 +18,7 @@ function App() {
 const [currentUser, setCurrentUser]=useState({})
 const [allUsers,setAllUsers] = useState([])
 const [currentConvo,setCurrentConvo]=useState({})
-
+const[loggedIn,setLoggedIn]=useState(false)
 useEffect(()=>{
   fetch('/users')
   .then(res => res.json())
@@ -33,7 +33,9 @@ useEffect(()=>{
 function handleLogout() {
   fetch("/logout", {
       method: "DELETE",
-      }).then(setCurrentUser({}))
+      }).then(() => {
+        setCurrentUser({})
+        setLoggedIn(false)})
   }
 
   function createCollab(requesterId,recieverId){
@@ -57,14 +59,14 @@ function handleLogout() {
         
         <Routes>
       <Route path="/" element={<LandingPage currentUser={currentUser}/>}/>
-      <Route path="/login" element={<Login setCurrentUser={setCurrentUser}/>}/>
+      <Route path="/login" element={<Login setCurrentUser={setCurrentUser} setLoggedIn={setLoggedIn}/>}/>
       <Route path="/signup" element={<SetupWizard currentUser={currentUser} setCurrentUser={setCurrentUser}/>}/>
       <Route path="/inbox" element={<Inbox currentUser={currentUser} setCurrentConvo={setCurrentConvo}/>}/>
       <Route path="inbox/:currentConvoId" element={<Chatbox currentUser={currentUser} currentConvo={currentConvo}/>}/>
       <Route path="/community" element={<CommunityBoard allUsers={allUsers} currentUser={currentUser} createCollab={createCollab}/>}/>
       <Route path="community/:userId" element={<ProfileCard  createCollab={createCollab}/>}/>
       <Route path="/buddy" element={<BuddyBoard currentUser={currentUser}/>}/>
-  
+
       </Routes>
       </Router>
     </div>

@@ -10,8 +10,8 @@ const [newUser, setNewUser]=useState({
     name:"",
     username:"",
     password:"",
-    pronouns:"they/them",
-    gender:"nonbinary",
+    pronouns:"she/her",
+    gender:"female",
     collab_type:"casual jam buddy",
     genre:"",
     email:"",
@@ -66,8 +66,16 @@ function handleSubmit(e){
     .then(res => res.json())
     .then(newUserRes => newUserLogin())
 } else {
-       //patch request
-
+    fetch(`/users/${currentUser.id}`, {
+        method:'PATCH',
+        headers: {
+            'Content-Type': 'application/json'},
+        body:JSON.stringify(newUser)
+    })
+    .then(res => res.json())
+    .then(newUserRes => {
+        console.log(newUserRes)
+        setCurrentUser(newUserRes)})
    }
 
 
