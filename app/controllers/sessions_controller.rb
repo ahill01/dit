@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     user = User.find_by(username: session_params[:username])
     if user && user.authenticate(session_params[:password])
         session[:user_id] = user.id
-        render json: user
+        render json: user, response: :ok
       else
         render json: { 
           errors: ['no such user', 'verify credentials and try again or signup']

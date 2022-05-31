@@ -1,15 +1,17 @@
 import React, {useEffect, useState} from "react"
 import SetupStep1 from "./SetupStep1"
 import SetupStep2 from "./SetupStep2"
+import SetupStep3 from "./SetupStep3"
+import SetupStep4 from "./SetupStep4"
 
-function SetupWizard(){
+function SetupWizard({currentUser,setCurrentUser}){
 const [currentStep, setCurrentStep]=useState(1)
 const [newUser, setNewUser]=useState({
     name:"",
     username:"",
     password:"",
-    pronouns:"she/her",
-    gender:"female",
+    pronouns:"they/them",
+    gender:"nonbinary",
     collab_type:"casual jam buddy",
     genre:"",
     email:"",
@@ -33,22 +35,54 @@ if(e.target.name ==="neopronouns") {
 }
 }
 
-function handleSubmit(e){
-    e.preventDefault()
-    //send post request
-
-    //login 
+function newUserLogin(){
+    console.log("logging in new user")
+    fetch('/login', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({credentials:{username:newUser.username,password:newUser.password}}) 
+   })
+   .then(res=> {
+    if(!res.ok) throw new Error(res.status);
+    else return res.json();
+   })
+   .then((user) => setCurrentUser(user))
+   .catch((error) =>{
+        console.log('error: '+error)
+    })
 }
 
-function next(data) {
-      if (currentStep >= 2) {
-        setCurrentStep(3);
+function handleSubmit(e){
+    e.preventDefault()
+   if(currentStep===1){
+       console.log(newUser.password)
+       //post request
+    fetch(`/users`, {
+        method:'POST',
+        headers: {
+            'Content-Type': 'application/json'},
+        body:JSON.stringify(newUser)
+    })
+    .then(res => res.json())
+    .then(newUserRes => newUserLogin())
+} else {
+       //patch request
+
+   }
+
+
+}
+
+function next(e) {
+    handleSubmit(e)
+      if (currentStep >= 3) {
+        setCurrentStep(4);
       } else {
         setCurrentStep(currentStep => (currentStep + 1));
       }
     }
      
-function prev(data) {
+function prev() {
       if (currentStep <= 1) {
        setCurrentStep(1);
       } else {
@@ -60,9 +94,10 @@ function prev(data) {
         <div>
            <SetupStep1 currentStep={currentStep} handleChange={handleChange} />
            <SetupStep2 currentStep={currentStep} handleChange={handleChange}/>
-           {/* <Step3 currentStep={currentStep} /> */}
-           <button onClick={next}>Next</button>
+           <SetupStep3 currentStep={currentStep} handleChange={handleChange} handleSubmit={handleSubmit}/>
+           <SetupStep4 currentStep={currentStep} handleChange={handleChange}/>
            <button onClick={prev}>Prev</button>
+           <button onClick={(e)=>next(e)}>Next</button>
         </div>
       );
     }

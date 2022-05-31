@@ -58,7 +58,7 @@ function handleLogout() {
         <Routes>
       <Route path="/" element={<LandingPage currentUser={currentUser}/>}/>
       <Route path="/login" element={<Login setCurrentUser={setCurrentUser}/>}/>
-      <Route path="/signup" element={<SetupWizard/>}/>
+      <Route path="/signup" element={<SetupWizard currentUser={currentUser} setCurrentUser={setCurrentUser}/>}/>
       <Route path="/inbox" element={<Inbox currentUser={currentUser} setCurrentConvo={setCurrentConvo}/>}/>
       <Route path="inbox/:currentConvoId" element={<Chatbox currentUser={currentUser} currentConvo={currentConvo}/>}/>
       <Route path="/community" element={<CommunityBoard allUsers={allUsers} currentUser={currentUser} createCollab={createCollab}/>}/>

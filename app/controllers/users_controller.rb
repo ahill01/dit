@@ -4,14 +4,24 @@ class UsersController < ApplicationController
     end
 
     def create
-        user = User.create!(user_params)
-        render json: user, status: :accepted
+        user = User.create!(new_user_params)
+        render json: user, status: :created
+    end
+
+    def update
+        user = User.find_by(id: session[:user_id])
+        if user 
+           user.update(user_params)
+           render json: user, status: 204
+        else
+            render json: {error: "Not authorized"}, status: :unauthorized
+        end
     end
 
     def show_loggedin_user
         user = User.find_by(id: session[:user_id])
         if user
-            render json: user
+            render json: user, status: :ok
         else
             render json: {error: "Not authorized"}, status: :unauthorized
         end
@@ -24,7 +34,11 @@ class UsersController < ApplicationController
 
     private
     def user_params
-        params.permit(:usernme, :name, :password, :gender, :pronouns, :collab_type)
+        params.require(:user).permit(:username, :email, :password, :name, :gender, :pronouns, :collab_type, :genre, :remote, :homebase, :bio)
+    end
+
+    def new_user_params
+        params.permit(:username, :email, :password)
     end
 
 end
