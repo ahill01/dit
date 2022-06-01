@@ -7,12 +7,13 @@ import LandingPage from "./components/LandingPage"
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import CommunityBoard from './components/CommunityBoard';
 import BuddyBoard from './components/BuddyBoard';
-import SignupForm from "./components/SignupForm"
 import ProfileCard from './components/ProfileCard';
 import Chatbox from './components/Chatbox';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
 import SetupWizard from "./components/SetupWizard"
+import EditAccountInfo from './components/EditAccountInfo';
+
 
 function App() {
 const [currentUser, setCurrentUser]=useState({})
@@ -54,12 +55,13 @@ function handleLogout() {
   return (
     <div className="App">
       <Router>
-        <Navbar currentUser={currentUser} handleLogout={handleLogout}/>
+        <Navbar currentUser={currentUser} handleLogout={handleLogout} loggedIn={loggedIn}/>
         <Header/>
         
         <Routes>
       <Route path="/" element={<LandingPage currentUser={currentUser}/>}/>
       <Route path="/login" element={<Login setCurrentUser={setCurrentUser} setLoggedIn={setLoggedIn}/>}/>
+      <Route path="/manage-account" element={<EditAccountInfo currentUser={currentUser} setCurrentUser={setCurrentUser}/>}/>
       <Route path="/signup" element={<SetupWizard currentUser={currentUser} setCurrentUser={setCurrentUser}/>}/>
       <Route path="/inbox" element={<Inbox currentUser={currentUser} setCurrentConvo={setCurrentConvo}/>}/>
       <Route path="inbox/:currentConvoId" element={<Chatbox currentUser={currentUser} currentConvo={currentConvo}/>}/>

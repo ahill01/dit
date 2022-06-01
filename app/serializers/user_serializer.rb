@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :gender, :pronouns, :collab_type, :primary_instrument, :username
+  attributes :id, :name, :gender, :pronouns, :collab_type, :primary_instrument, :username, :email, :homebase, :bio
   
   def primary_instrument
     primary = self.object.instruments.where(primary:true).limit(1)

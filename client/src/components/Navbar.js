@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 
-function Navbar({handleLogout, currentUser}) {
+function Navbar({handleLogout, currentUser,loggedIn}) {
 
     return (
     <div className="navbar">
@@ -8,7 +8,7 @@ function Navbar({handleLogout, currentUser}) {
     <br></br>
     <Link to="/login" onClick={handleLogout}>{currentUser.id !== undefined ? "Logout": "Login"}</Link>
     <br></br>
-    <Link to="/signup">Sign up!</Link>
+    {loggedIn ? (<Link to="/manage-account">Manage Account</Link>):(<Link to="/signup">Sign up!</Link>)}
     <br></br>
     <Link to="/inbox">Inbox</Link>
     <br></br>

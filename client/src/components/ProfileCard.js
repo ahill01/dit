@@ -18,7 +18,8 @@ useEffect(() => {
     return(
         <div className="profile-card">
         <h1>{user.name}</h1>
-        <h3>{user.pronouns}</h3>
+        <p>{`@${user.username}`}</p>
+        <h4>{user.pronouns}</h4>
         <h2>Seeking:</h2>
         <h3>{user.collab_type}</h3>
         <h2>plays:</h2>
