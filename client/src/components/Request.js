@@ -40,22 +40,27 @@ function Request({request, setCollabRequests}){
             if(!res.ok) throw new Error(res.status);
             else return res.json();
         })
-        .then((accepted_req) => filterOut(accepted_req))
+        .then((accepted_req) => {
+            filterOut(accepted_req)
+            createCollab(accepted_req)})
         .catch((error) =>{
             console.log('error: '+error)
         })
     }
 
-    function createCollab(){
+    function createCollab(acceptedReq){
         fetch(`/users/${request.reciever.id}/collabs`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                collaborator_a_id:request.requester.id,
-                collaborator_b_id:request.reciever.id
+                collaborator_a_id:acceptedReq.requester.id,
+                collaborator_b_id:acceptedReq.reciever.id
             })})
             .then(res => res.json())
             .then(collab => console.log(collab))
+            .catch((error) =>{
+                console.log('error: '+error)
+            })
     }
 
     return(
