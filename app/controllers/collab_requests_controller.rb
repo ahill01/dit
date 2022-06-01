@@ -2,8 +2,22 @@ class CollabRequestsController < ApplicationController
 
     def index
         if params.include?(:user_id) then
-            requests = CollabRequest.where("reciever_id = ? and accepted = ?", params[:user_id],false)
-            render json: requests, status: :ok
+            all_requests = CollabRequest.where("reciever_id = ? or requester_id = ?", params[:user_id],params[:user_id])
+            render json: all_requests, status: :ok
+        end
+    end
+
+    def pending_index
+        if params.include?(:user_id) then
+            pending_req = CollabRequest.where("requester_id = ? and accepted = ?",params[:user_id],false)
+           render json: pending_req, status: :ok
+        end
+    end
+
+    def recieved_index
+        if params.include?(:user_id) then
+            rec_requests = CollabRequest.where("reciever_id = ? and accepted = ?", params[:user_id],false)
+           render json: rec_requests, status: :ok
         end
     end
 

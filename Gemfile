@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem "shutup", "~> 0.1.2"
 ruby "2.7.4"
 gem 'active_model_serializers'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react"
-function Request({request, setCollabRequests}){
-
+function RecievedRequest({request, setCollabRequests,setCollabs}){
       function handleClick(e){
           if(e.target.name === "reject") {
             reject()
@@ -57,18 +56,21 @@ function Request({request, setCollabRequests}){
                 collaborator_b_id:acceptedReq.reciever.id
             })})
             .then(res => res.json())
-            .then(collab => console.log(collab))
+            .then(collab => {
+                setCollabs()
+                console.log(collab)})
             .catch((error) =>{
                 console.log('error: '+error)
             })
     }
-
+if(!request.accepted) {
+    debugger;
     return(
         <div className="req">
-        <h2>{`${request.requester.username}`}</h2>
+        <h2>{`${request.id}`}</h2>
         <button name={`accept${request.id}`} onClick={handleClick} >✅ accept</button> <button name={`reject${request.id}`} onClick={handleClick} >❌ reject</button>
         </div>
-    )
+    )} else return null
 }
 
-export default Request
+export default RecievedRequest

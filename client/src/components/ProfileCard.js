@@ -30,7 +30,7 @@ useEffect(() => {
         </ul>
         <div className="links">
         <h2>Links</h2>
-        {user.links.map(link => {return <button className="links" href={link.url}>{link.kind}</button>})}
+        {user.links.length > 0 ? (user.links.map(link => {return <button className="links" href={link.url}>{link.kind}</button>})):null}
         </div>
         <br></br>
         <button className="InviteCollab" onClick={createCollab}>Invite to Collaborate</button>
