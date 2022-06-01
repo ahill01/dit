@@ -28,8 +28,13 @@ useEffect(() => {
             return <li>{`${instrument.kind} (${instrument.proficiency})`}</li>
         })}
         </ul>
-        <button onClick={createCollab}>Invite to Collaborate</button>
-        <button>Send a Message</button>
+        <div className="links">
+        <h2>Links</h2>
+        {user.links.map(link => {return <button className="links" href={link.url}>{link.kind}</button>})}
+        </div>
+        <br></br>
+        <button className="InviteCollab" onClick={createCollab}>Invite to Collaborate</button>
+        <button clasName="sendMessage">Send a Message</button>
         </div>
     )
 }
