@@ -64,10 +64,10 @@ function RecievedRequest({request, setCollabRequests,setCollabs}){
             })
     }
 if(!request.accepted) {
-    debugger;
     return(
         <div className="req">
-        <h2>{`${request.id}`}</h2>
+        <h2>{`${request.requester.name}`}</h2>
+        <p>{`@${request.requester.username}`}</p>
         <button name={`accept${request.id}`} onClick={handleClick} >✅ accept</button> <button name={`reject${request.id}`} onClick={handleClick} >❌ reject</button>
         </div>
     )} else return null
