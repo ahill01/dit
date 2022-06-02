@@ -12,11 +12,15 @@ class InstrumentsController < ApplicationController
     end
 
     def update
-        
+        inst = Instrument.find(params[:id])
+        inst.update(inst_params)
+        render json: inst, status: :ok
     end
 
     def destroy
-
+        inst = Instrument.find(params[:id])
+        inst.destroy
+        render json: inst, status: :ok
     end
 
     private

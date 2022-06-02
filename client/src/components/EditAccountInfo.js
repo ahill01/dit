@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from "react"
+import {useNavigate, useParams} from "react-router-dom"
 import AddInstruments from "./AddInstruments"
-
 
 function EditAccountInfo({currentUser,setCurrentUser}){
 const[updatedUser, setUpdatedUser]=useState(currentUser)
 const[neopronouns, setNeopronouns]=useState(false)
+let navigate = useNavigate();
 
 function handleChange(e){
     //special cases: neopronouns, remote collab -> true/false
@@ -107,7 +108,8 @@ function handleSubmit(e){
          <br></br>
          <input type="bio" name="bio" onChange={handleChange} value={updatedUser.bio}></input>
          <br></br>
-        {addNewInstrument()}
+        {/* {addNewInstrument()} */}
+        <button type="button" name="edit-inst" onClick={() => navigate('/manage-account/instruments')}>Edit Instruments</button>
         <br></br>
         <button type="submit">Save</button>
     </form>)

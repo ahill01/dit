@@ -1,7 +1,7 @@
 import React, {useEffect,useState} from "react"
 import {useNavigate, useParams} from "react-router-dom"
 
-function AddInstrumentForm({currentUser}) {
+function AddInstrumentForm({currentUser,setCurrentUser,instruments,setInstruments}) {
 let navigate = useNavigate();
 let {inst_kind} = useParams();
   
@@ -29,7 +29,10 @@ let {inst_kind} = useParams();
       body:JSON.stringify(newInstrument)
   })
   .then(res => res.json())
-  .then(newInst=> alert(`${newInst.kind} added`) )
+  .then(newInst=> {
+    alert(`${newInst.kind} added`)
+    setInstruments([...instruments,newInst])
+    setCurrentUser({...currentUser,instruments:instruments})})
   .catch((error) =>{
     console.log('error: '+error)
 })
