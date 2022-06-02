@@ -17,15 +17,15 @@ function SetupStep3({currentStep,handleChange,handleSubmit}) {
             <option value="whatever!">whatever!</option>
          </select>
          <br></br>
-         <label htmlFor="genre" onChange={handleChange}>Genre:</label>
+         <label htmlFor="genre">Genre:</label>
          <br></br>
-         <input type="text" name="genre"></input>
+         <input type="text" name="genre" onChange={handleChange}></input>
          <br></br>
          <label htmlFor="homebase">Homebase (current city):</label>
          <br></br>
-         <input type="text" name="homebase"></input>
+         <input type="text" name="homebase" onChange={handleChange}></input>
          <br></br>
-         <label htmlFor="remote">Open to remote collab:</label>
+         <label htmlFor="remot0e">Open to remote collab:</label>
          <br></br>
          <select name="remote" onChange={handleChange}>
             <option value="false">no</option>

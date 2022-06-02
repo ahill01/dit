@@ -17,7 +17,6 @@ const[pronouns,setPronouns]=useState("")
         <br></br>
         <select name="pronouns" onChange={(e)=>{
           handleChange(e) 
-          console.log("doing stuff")
           setPronouns(e.target.value)}}>
             <option value="she/her">She/Her</option>
             <option value="he/him">He/Him</option>

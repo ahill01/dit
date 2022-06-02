@@ -2,11 +2,15 @@ import React, {useState, useEffect} from "react"
 
 function EditAccountInfo({currentUser,setCurrentUser}){
 const[updatedUser, setUpdatedUser]=useState(currentUser)
+const[neopronouns, setNeopronouns]=useState(false)
 
 function handleChange(e){
     //special cases: neopronouns, remote collab -> true/false
 let value = e.target.value
 let form_key = e.target.name
+if(e.target.value === "neopronouns" || e.target.name==="neopronouns"){
+    setNeopronouns(true)
+} else setNeopronouns(false)
 
 if(e.target.name ==="neopronouns") {
     setUpdatedUser({...updatedUser,pronouns:value})
@@ -19,7 +23,6 @@ if(e.target.name ==="neopronouns") {
 }
 
 function handleSubmit(e){
-    console.log("submitting")
     e.preventDefault()
     fetch(`/users/${currentUser.id}`, {
         method:'PATCH',
@@ -29,7 +32,7 @@ function handleSubmit(e){
     })
     .then(res => res.json())
     .then(updatedUser => {
-        console.log(updatedUser)
+       alert("account updates saved!")
         setCurrentUser(updatedUser)
     })
    }
@@ -50,16 +53,18 @@ function handleSubmit(e){
          <br></br>
         <label htmlFor="pronouns">Pronouns:</label>
         <br></br>
-        <select name="pronouns" onChange={handleChange} value={updatedUser.pronouns}>
+        <select name="pronouns" onChange={handleChange} value={neopronouns ?"neopronouns":updatedUser.pronouns}>
             <option value="she/her">She/Her</option>
             <option value="he/him">He/Him</option>
             <option value="they/them">They/Them</option>
             <option value="they/she">They/She</option>
             <option value="they/he">They/He</option>
-            <option value="">{`Neopronouns (specify below)`}</option>
+            <option value="neopronouns">{`Neopronouns (specify below)`}</option>
          </select>
          <br></br>
-         {updatedUser.pronouns==="neopronouns" ? (<input type="text" name="neopronouns" onChange={handleChange}></input>) : null}
+         <br></br>
+         {neopronouns ? (<input type="text" name="neopronouns" onChange={handleChange}></input>) : null}
+         <br></br>
          <label htmlFor="gender">Gender:</label>
          <br></br>
          <select name="gender" onChange={handleChange}>
@@ -78,13 +83,13 @@ function handleSubmit(e){
             <option value="whatever!">whatever!</option>
          </select>
          <br></br>
-         <label htmlFor="genre" onChange={handleChange}>Genre:</label>
+         <label htmlFor="genre" >Genre:</label>
          <br></br>
-         <input type="text" name="genre" value={updatedUser.genre}></input>
+         <input type="text" name="genre" onChange={handleChange} value={updatedUser.genre}></input>
          <br></br>
          <label htmlFor="homebase">Homebase (current city):</label>
          <br></br>
-         <input type="text" name="homebase" value={updatedUser.homebase}></input>
+         <input type="text" name="homebase" onChange={handleChange} value={updatedUser.homebase}></input>
          <br></br>
          <label htmlFor="remote">Open to remote collab:</label>
          <br></br>
@@ -93,7 +98,7 @@ function handleSubmit(e){
             <option value="true">yes</option>
         </select>
         <br></br>
-         <label htmlFor="bio" value={updatedUser.bio}>Bio:</label>
+         <label htmlFor="bio">Bio:</label>
          <br></br>
          <input type="bio" name="bio" onChange={handleChange} value={updatedUser.bio}></input>
          <br></br>

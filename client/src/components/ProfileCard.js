@@ -15,6 +15,15 @@ useEffect(() => {
         setInstruments(showUser.instruments)})
     },[])
 
+function renderLinks(){
+    if(user.links !== undefined && user.links[0] !== undefined){
+        return (
+        <div className="links"> 
+        <h2>Links</h2>
+         {user.links.map(link => {return <button className="links"><a href={link.url}>{link.kind}</a></button>})}
+        </div>)
+    } else return null
+}
     return(
         <div className="profile-card">
         <h1>{user.name}</h1>
@@ -28,10 +37,7 @@ useEffect(() => {
             return <li>{`${instrument.kind} (${instrument.proficiency})`}</li>
         })}
         </ul>
-        <div className="links">
-        <h2>Links</h2>
-        {user.links.length > 0 ? (user.links.map(link => {return <button className="links" href={link.url}>{link.kind}</button>})):null}
-        </div>
+        {renderLinks()}
         <br></br>
         <button className="InviteCollab" onClick={createCollab}>Invite to Collaborate</button>
         <button clasName="sendMessage">Send a Message</button>

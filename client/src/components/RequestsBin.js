@@ -3,7 +3,7 @@ import RecievedRequest from "./RecievedRequest"
 import SentRequest from "./SentRequest"
 
 function RequestsBin({setCollabRequests,collabRequests,setCollabs,pendingCollabRequests}){
-console.log(collabRequests)
+console.log(`collabRequests, from Requests Bin: ${collabRequests}`)
 
    if(collabRequests.length >0) {
     return(
@@ -15,7 +15,10 @@ console.log(collabRequests)
        {pendingCollabRequests.map(request => <SentRequest request={request}/> )}
         </div>
     )
-   } else return <h4>no incoming requests</h4>
+   } else return <div>
+               <h1>Collab Requests</h1>
+               <h4>no incoming requests</h4>
+       </div>
 }
 
 export default RequestsBin

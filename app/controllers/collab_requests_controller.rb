@@ -16,7 +16,7 @@ class CollabRequestsController < ApplicationController
 
     def recieved_index
         if params.include?(:user_id) then
-            rec_requests = CollabRequest.where("reciever_id = ? and accepted = ?", params[:user_id],false)
+            rec_requests = CollabRequest.where("reciever_id = ? and accepted = ?",params[:user_id],false)
            render json: rec_requests, status: :ok
         end
     end

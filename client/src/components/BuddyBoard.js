@@ -8,7 +8,7 @@ function BuddyBoard({currentUser}){
     const[pendingRequests, setPendingRequests]=useState([])
     const[recievedRequests,setRecievedRequests]=useState([])
 
-// fetch collab requests
+// recieved requests 
     useEffect(()=>{
         fetch(`/users/${currentUser.id}/recieved_requests`)
         .then(res => {
@@ -21,7 +21,7 @@ function BuddyBoard({currentUser}){
             console.log('error: '+error)
         })
       },[currentUser])
-
+//pending
       useEffect(()=>{
         fetch(`/users/${currentUser.id}/pending_requests`)
         .then(res => {
@@ -43,7 +43,7 @@ function BuddyBoard({currentUser}){
             else return res.json();
         })
         .then(collabs => {
-            setCollabRequests(collabs)})
+            setCollabs(collabs)})
         .catch((error) =>{
             console.log('error: '+error)
         })
