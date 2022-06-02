@@ -17,7 +17,7 @@ import EditInstruments from './components/EditInstruments';
 import AddInstrumentForm from './components/AddInstrumentForm';
 import AddInstruments from './components/AddInstruments';
 import SetupStep4 from "./components/SetupStep4"
-
+import Navbar2 from './components/Navbar2';
 function App() {
 const [currentUser, setCurrentUser]=useState({})
 const [allUsers,setAllUsers] = useState([])
@@ -60,8 +60,7 @@ function handleLogout() {
   return (
     <div className="App">
       <Router>
-        <Navbar currentUser={currentUser} handleLogout={handleLogout} loggedIn={loggedIn}/>
-        <Header/>
+        <Navbar2 currentUser={currentUser} handleLogout={handleLogout} loggedIn={loggedIn}/>
         
       <Routes>
       <Route path="/" element={<LandingPage currentUser={currentUser}/>}/>

@@ -47,18 +47,18 @@ function RecievedRequest({request, setCollabRequests,setCollabs}){
         })
     }
 
-    function createCollab(acceptedReq){
+    function createCollab(accepted_req){
         fetch(`/users/${request.reciever.id}/collabs`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                collaborator_a_id:acceptedReq.requester.id,
-                collaborator_b_id:acceptedReq.reciever.id
+                collaborator_a_id:accepted_req.requester.id,
+                collaborator_b_id:accepted_req.reciever.id
             })})
             .then(res => res.json())
             .then(collab => {
-                setCollabs()
-                console.log(collab)})
+                setCollabs(prevState => [...prevState,collab])
+                })
             .catch((error) =>{
                 console.log('error: '+error)
             })
@@ -68,7 +68,7 @@ if(!request.accepted) {
         <div className="req">
         <h2>{`${request.requester.name}`}</h2>
         <p>{`@${request.requester.username}`}</p>
-        <button name={`accept${request.id}`} onClick={handleClick} >✅ accept</button> <button name={`reject${request.id}`} onClick={handleClick} >❌ reject</button>
+        <button type="button" name={`accept${request.id}`} onClick={handleClick} >✅ accept</button> <button type="button" name={`reject${request.id}`} onClick={handleClick} >❌ reject</button>
         </div>
     )} else return null
 }

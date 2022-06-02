@@ -20,7 +20,9 @@ function renderLinks(){
         return (
         <div className="links"> 
         <h2>Links</h2>
-         {user.links.map(link => {return <button className="links"><a href={link.url}>{link.kind}</a></button>})}
+        <div className="list-group-item-action">
+         {user.links.map(link => {return <a href={link.url} className="list-group-item list-group-item-action-active">{link.kind}</a>})}
+         </div>
         </div>)
     } else return null
 }
@@ -33,9 +35,9 @@ function renderLinks(){
         <h2>Seeking:</h2>
         <h3>{user.collab_type}</h3>
         <h2>plays:</h2>
-        <ul>
+        <ul className="list-group list-group-flush">
         {instruments.map(instrument=> {
-            return <li>{`${instrument.kind} (${instrument.proficiency})`}</li>
+            return <li className={`list-group-item ${instrument.proficiency}`}>{`${instrument.kind} (${instrument.proficiency})`}</li>
         })}
         </ul>
         {renderLinks()}

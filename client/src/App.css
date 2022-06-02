@@ -75,5 +75,16 @@
   background-color:rgb(201, 150, 207)
 }
 .landing{
-  background-color:#624763
+  background-color:rgb(201, 150, 207)
+}
+
+.beginner {
+  background-color: rgb(161, 224, 138);
+  }
+
+.intermediate {
+  background-color: rgb(215, 190, 131)
+}
+.advanced {
+  background-color: rgb(131, 145, 201)
 }

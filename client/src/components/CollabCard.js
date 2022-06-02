@@ -10,7 +10,7 @@ function CollabCard({currentUser,collab}){
     return(
         <div className="container-md collab">
         <h2>{displayName()}</h2>
-        <p>info about collab will go here</p>
+        <p>{`You and ${displayName()} have been collaborators since ${collab.collab_since}`}</p>
         </div>
     )
 }
