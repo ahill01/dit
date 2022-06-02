@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from "react"
+import AddInstruments from "./AddInstruments"
+
 
 function EditAccountInfo({currentUser,setCurrentUser}){
 const[updatedUser, setUpdatedUser]=useState(currentUser)
@@ -37,6 +39,9 @@ function handleSubmit(e){
     })
    }
 
+   function addNewInstrument(){
+       return <AddInstruments/>
+   }
 
     return(<form onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label><br></br>
@@ -102,6 +107,8 @@ function handleSubmit(e){
          <br></br>
          <input type="bio" name="bio" onChange={handleChange} value={updatedUser.bio}></input>
          <br></br>
+        {addNewInstrument()}
+        <br></br>
         <button type="submit">Save</button>
     </form>)
 }

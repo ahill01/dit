@@ -5,6 +5,7 @@ function Chatbox({currentUser,currentConvo}) {
 const [messages, setMessages]=useState([])
 const [newMessage, setNewMessage]=useState("")
 let me = currentConvo.sender === currentUser.name
+
 function handleChange(e){
     setNewMessage(e.target.value)
 }

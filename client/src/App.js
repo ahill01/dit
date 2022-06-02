@@ -13,7 +13,7 @@ import Header from './components/Header';
 import Navbar from './components/Navbar';
 import SetupWizard from "./components/SetupWizard"
 import EditAccountInfo from './components/EditAccountInfo';
-
+import AddInstrumentForm from './components/AddInstrumentForm';
 
 function App() {
 const [currentUser, setCurrentUser]=useState({})
@@ -68,6 +68,7 @@ function handleLogout() {
       <Route path="/community" element={<CommunityBoard allUsers={allUsers} currentUser={currentUser} createCollab={createCollab}/>}/>
       <Route path="community/:userId" element={<ProfileCard  createCollab={createCollab}/>}/>
       <Route path="/buddy" element={<BuddyBoard currentUser={currentUser}/>}/>
+      <Route path="/add-instrument/:inst_kind" element={<AddInstrumentForm currentUser={currentUser}/>}/>
 
       </Routes>
       </Router>

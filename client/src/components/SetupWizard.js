@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react"
 import SetupStep1 from "./SetupStep1"
 import SetupStep2 from "./SetupStep2"
 import SetupStep3 from "./SetupStep3"
-import SetupStep4 from "./SetupStep4"
+import AddInstruments from "./AddInstruments"
 
 function SetupWizard({currentUser,setCurrentUser}){
 const [currentStep, setCurrentStep]=useState(1)
@@ -55,7 +55,6 @@ function newUserLogin(){
 function handleSubmit(e){
     e.preventDefault()
    if(currentStep===1){
-       console.log(newUser.password)
        //post request
     fetch(`/users`, {
         method:'POST',
@@ -74,7 +73,6 @@ function handleSubmit(e){
     })
     .then(res => res.json())
     .then(newUserRes => {
-        console.log(newUserRes)
         setCurrentUser(newUserRes)})
    }
 
@@ -103,7 +101,7 @@ function prev() {
            <SetupStep1 currentStep={currentStep} handleChange={handleChange} />
            <SetupStep2 currentStep={currentStep} handleChange={handleChange}/>
            <SetupStep3 currentStep={currentStep} handleChange={handleChange} handleSubmit={handleSubmit}/>
-           <SetupStep4 currentStep={currentStep} handleChange={handleChange}/>
+           <AddInstruments currentStep={currentStep} handleChange={handleChange}currentUser={currentUser}/>
            <button onClick={prev}>Prev</button>
            <button onClick={(e)=>next(e)}>Next</button>
         </div>
