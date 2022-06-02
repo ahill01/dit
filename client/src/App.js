@@ -14,6 +14,8 @@ import Navbar from './components/Navbar';
 import SetupWizard from "./components/SetupWizard"
 import EditAccountInfo from './components/EditAccountInfo';
 import AddInstrumentForm from './components/AddInstrumentForm';
+import AddInstruments from './components/AddInstruments';
+import SetupStep4 from "./components/SetupStep4"
 
 function App() {
 const [currentUser, setCurrentUser]=useState({})
@@ -63,13 +65,14 @@ function handleLogout() {
       <Route path="/login" element={<Login setCurrentUser={setCurrentUser} setLoggedIn={setLoggedIn}/>}/>
       <Route path="/manage-account" element={<EditAccountInfo currentUser={currentUser} setCurrentUser={setCurrentUser}/>}/>
       <Route path="/signup" element={<SetupWizard currentUser={currentUser} setCurrentUser={setCurrentUser}/>}/>
+      <Route path="/4" element={<SetupStep4 currentUser={currentUser}/>}/>
       <Route path="/inbox" element={<Inbox currentUser={currentUser} setCurrentConvo={setCurrentConvo}/>}/>
       <Route path="inbox/:currentConvoId" element={<Chatbox currentUser={currentUser} currentConvo={currentConvo}/>}/>
       <Route path="/community" element={<CommunityBoard allUsers={allUsers} currentUser={currentUser} createCollab={createCollab}/>}/>
       <Route path="community/:userId" element={<ProfileCard  createCollab={createCollab}/>}/>
       <Route path="/buddy" element={<BuddyBoard currentUser={currentUser}/>}/>
       <Route path="/add-instrument/:inst_kind" element={<AddInstrumentForm currentUser={currentUser}/>}/>
-
+      <Route path="/add-instrument" element={<AddInstruments/>}/>
       </Routes>
       </Router>
     </div>

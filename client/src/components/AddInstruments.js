@@ -1,8 +1,6 @@
 import React, {useEffect,useState} from "react"
 import {useNavigate} from 'react-router-dom';
 
-import AddInstrumentForm from "./AddInstrumentForm"
-
 function AddInstruments({}) {
   let navigate = useNavigate();
 

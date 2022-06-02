@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react"
 import SetupStep1 from "./SetupStep1"
 import SetupStep2 from "./SetupStep2"
 import SetupStep3 from "./SetupStep3"
-import AddInstruments from "./AddInstruments"
+import SetupStep4 from "./SetupStep4"
 
 function SetupWizard({currentUser,setCurrentUser}){
 const [currentStep, setCurrentStep]=useState(1)
@@ -101,7 +101,8 @@ function prev() {
            <SetupStep1 currentStep={currentStep} handleChange={handleChange} />
            <SetupStep2 currentStep={currentStep} handleChange={handleChange}/>
            <SetupStep3 currentStep={currentStep} handleChange={handleChange} handleSubmit={handleSubmit}/>
-           <AddInstruments currentStep={currentStep} handleChange={handleChange}currentUser={currentUser}/>
+           <SetupStep4 currentStep={currentStep} handleChange={handleChange}/>
+           <br></br>
            <button onClick={prev}>Prev</button>
            <button onClick={(e)=>next(e)}>Next</button>
         </div>
