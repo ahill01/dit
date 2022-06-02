@@ -10,7 +10,9 @@ useEffect(() => {
     .then(res_conversations => setConversations(res_conversations))
 },[])
 
-  return (
+if(currentUser.name===undefined) {
+  return <h1><em>**log in to view your messges**</em></h1>
+} else return (
     <div className="Inbox">
         <h1>{`${currentUser.name}'s Inbox`}</h1>
         {conversations.map(conversation => <ChatSummary id= {conversation.id} conversation={conversation} currentUser={currentUser} setCurrentConvo={setCurrentConvo}/>)}

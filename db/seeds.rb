@@ -6,6 +6,8 @@ User.create!(name:"Lucy",username:"Lucy_Dacus",password:"nightshift",pronouns:"s
 
 User.create!(name:"Julien",username:"Baker_Julien",password:"SprainedAnkle221",pronouns:"she/her",gender:"female",collab_type:"band member(co-writer)",email:"julien.baker@gmail.com",genre:"sad girl indie",remote:true,homebase:"Memphis, TN",bio:"Musician from Memphis, Tennessee.")
 
+User.create!(name:"Allison",username:"a_philharmonic",password:"musicR0cks",pronouns:"she/her",gender:"female",collab_type:"band member(co-writer)",email:"amh03160@gmail.com",genre:"indie",remote:true,homebase:"Houston, TX",bio:"just makin whatever music suits my fancy tbh")
+
 puts("seeding conversations")
 Conversation.create!(sender_id:1,recipient_id:2)
 Conversation.create!(sender_id:3,recipient_id:1)
@@ -27,6 +29,12 @@ Instrument.create!(kind:"keys",primary:false,user_id:2,proficiency:"advanced")
 #julien
 Instrument.create!(kind:"guitar",user_id:3,primary:true,proficiency:"advanced")
 Instrument.create!(kind:"keys",user_id:3,proficiency:"advanced")
+
+#allison
+Instrument.create!(kind:"cello",user_id:4,proficiency:"advanced",primary:true)
+Instrument.create!(kind:"bass",user_id:3,proficiency:"intermediate")
+Instrument.create!(kind:"guitar",user_id:3,proficiency:"intermediate")
+Instrument.create!(kind:"bass",user_id:3,proficiency:"intermediate")
 
 puts("seeding links")
 #phoebe

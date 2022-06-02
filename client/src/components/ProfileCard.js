@@ -4,7 +4,7 @@ import {useNavigate, useParams} from "react-router-dom"
 function ProfileCard({createCollab}){
 const [user,setUser] = useState({})
 const [instruments, setInstruments]=useState([])
-
+let navigate = useNavigate();
 let {userId} = useParams()
 
 useEffect(() => {
@@ -25,6 +25,7 @@ function renderLinks(){
     } else return null
 }
     return(
+        <div>
         <div className="profile-card">
         <h1>{user.name}</h1>
         <p>{`@${user.username}`}</p>
@@ -41,6 +42,8 @@ function renderLinks(){
         <br></br>
         <button className="InviteCollab" onClick={createCollab}>Invite to Collaborate</button>
         <button clasName="sendMessage">Send a Message</button>
+        </div>
+        <button onClick={() => navigate(-1)}>Back</button>
         </div>
     )
 }

@@ -18,8 +18,9 @@ function BuddyBoard({currentUser}){
             console.log('error: '+error)
         })
       },[currentUser])
-
-    return(
+      if(currentUser.name===undefined) {
+        return <h1><em>**log in to view your Buddy Board**</em></h1>
+      } else return(
         <div>
         <RequestsBin setCollabs={setCollabs} currentUser={currentUser}/>
         <ActiveCollabs currentUser={currentUser} collabs={collabs} setCollabs={setCollabs}/>
