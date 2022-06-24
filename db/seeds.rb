@@ -50,8 +50,9 @@ Link.create!(kind:"social",url:"https://www.instagram.com/julienrbaker/",user_id
 Link.create!(kind:"music",url:"https://www.youtube.com/channel/UCU7v5kTKdLacf5c4KeMempQ",user_id:3)
 
 puts("seeding collab requests")
-CollabRequest.create(requester_id:1,reciever_id:2)
+CollabRequest.create(requester_id:1,reciever_id:2,accepted:true)
 CollabRequest.create(requester_id:3,reciever_id:1)
 CollabRequest.create(requester_id:2,reciever_id:3)
 
 # puts("seeding collabs")
+Collab.create(collaborator_a_id: 1,collaborator_b_id:2)

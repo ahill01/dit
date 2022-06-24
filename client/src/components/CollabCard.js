@@ -7,6 +7,7 @@ function CollabCard({currentUser,collab}){
         }
         else return collab.collaborator_a.name
     }
+
     return(
         <div className="container-md collab">
         <h2>{displayName()}</h2>

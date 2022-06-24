@@ -9,6 +9,9 @@ useEffect(() => {
     .then(res => res.json())
     .then(res_conversations => setConversations(res_conversations))
 },[])
+function startNewConvo(){
+
+}
 
 if(currentUser.name===undefined) {
   return <h1><em>**log in to view your messges**</em></h1>

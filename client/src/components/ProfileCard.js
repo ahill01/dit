@@ -43,7 +43,6 @@ function renderLinks(){
         {renderLinks()}
         <br></br>
         <button className="InviteCollab" onClick={createCollab}>Invite to Collaborate</button>
-        <button clasName="sendMessage">Send a Message</button>
         </div>
         <button onClick={() => navigate(-1)}>Back</button>
         </div>
