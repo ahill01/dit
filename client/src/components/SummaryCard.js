@@ -1,7 +1,7 @@
 import React from "react"
 import {useNavigate, useParams} from "react-router-dom"
 
-function SummaryCard({user,currentUser,createCollab}){
+function SummaryCard({user,currentUser,createCollab,createCollabReq}){
 let navigate = useNavigate() 
 
 function renderProfileCard(){
@@ -21,7 +21,7 @@ function renderProfileCard(){
         <h3>{`primary instrument:`}</h3>
         <p>{user.primary_instrument}</p>
         </div>
-        <button onClick={() => createCollab(currentUser.id,user.id)}>Invite to Collaborate</button>
+        <button onClick={() => createCollabReq(currentUser.id,user.id)}>Invite to Collaborate</button>
         </div>
     )
 }

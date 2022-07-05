@@ -13,7 +13,8 @@ const [collabRequests, setCollabRequests]=useState([])
             else return res.json();
         })
         .then(requests => {
-            setCollabRequests(requests)})
+            setCollabRequests(requests)
+            })
         .catch((error) =>{
             console.log('error: '+error)
         })

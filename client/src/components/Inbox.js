@@ -15,12 +15,14 @@ function startNewConvo(){
 
 if(currentUser.name===undefined) {
   return <h1><em>**log in to view your messges**</em></h1>
-} else return (
+} else if(conversations.length>0) {return (
     <div className="Inbox">
         <h1>{`${currentUser.name}'s Inbox`}</h1>
         {conversations.map(conversation => <ChatSummary id= {conversation.id} conversation={conversation} currentUser={currentUser} setCurrentConvo={setCurrentConvo}/>)}
     </div>
   );
+}
+else {return (<h1>"no messages"</h1>)}
 }
 
 export default Inbox;

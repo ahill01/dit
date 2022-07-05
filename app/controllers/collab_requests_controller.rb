@@ -9,6 +9,11 @@ class CollabRequestsController < ApplicationController
         end
     end
 
+    def create
+        new_collab_req = CollabRequest.create!(collab_request_params)
+        render json: new_collab_req, status: :ok
+    end
+
     def pending_index
         if params.include?(:user_id) then
             pending_req = CollabRequest.where("requester_id = ? and accepted = ?",params[:user_id],false)

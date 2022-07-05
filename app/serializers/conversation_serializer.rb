@@ -1,5 +1,5 @@
 class ConversationSerializer < ActiveModel::Serializer
-  attributes :id, :recipient, :sender, :last_message
+  attributes :id, :recipient, :sender, :last_message, :sender_id, :recipient_id
 
   def recipient 
     # byebug
@@ -11,8 +11,11 @@ class ConversationSerializer < ActiveModel::Serializer
   end
 
   def last_message
-    msg_body = self.object.messages.last.body
-    msg_sender = User.find(self.object.messages.last.user_id).name
-    return {:body => msg_body,:sender => msg_sender}
+    if(self.object.messages.length>0) then
+      msg_body = self.object.messages.last.body
+      msg_sender = User.find(self.object.messages.last.user_id).name
+      return {:body => msg_body,:sender => msg_sender}
+    end
   end
+
 end

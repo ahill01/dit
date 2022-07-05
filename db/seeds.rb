@@ -8,16 +8,47 @@ User.create!(name:"Julien",username:"Baker_Julien",password:"SprainedAnkle221",p
 
 User.create!(name:"Allison",username:"a_philharmonic",password:"musicR0cks",pronouns:"she/her",gender:"female",collab_type:"band member(co-writer)",email:"amh03160@gmail.com",genre:"indie",remote:true,homebase:"Houston, TX",bio:"just makin whatever music suits my fancy tbh")
 
+User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
+
+User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
+
+User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
+
+User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
+
+User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
+
+User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
+
+User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
+
+User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
+
+User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
+
+User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
+
+User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
+
+User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
+
+
+puts("seeding collab requests")
+CollabRequest.create(requester_id:1,reciever_id:2,accepted:true)
+CollabRequest.create(requester_id:3,reciever_id:1)
+CollabRequest.create(requester_id:2,reciever_id:3)
+
+# puts("seeding collabs")
+Collab.create(collaborator_a_id: 1,collaborator_b_id:2)
+
+
 puts("seeding conversations")
-Conversation.create!(sender_id:1,recipient_id:2)
-Conversation.create!(sender_id:3,recipient_id:1)
+Conversation.create!(sender_id:2,recipient_id:1)
 
 puts("seeding messages!")
+Message.create(body:"I approved your collab request!",conversation_id:1,user_id:2)
 Message.create(body:"Hi there Lucy!",conversation_id:1,user_id:1)
-
 Message.create(body:"Hi there Phoebe!",conversation_id:1,user_id:2)
-
-Message.create(body:"hey girl hey",conversation_id:2,user_id:3)
 
 puts("seeding instruments!")
 #phoebe
@@ -49,10 +80,3 @@ Link.create!(kind:"music",url:"https://www.youtube.com/watch?v=-4FyRybGiBc&ab_ch
 Link.create!(kind:"social",url:"https://www.instagram.com/julienrbaker/",user_id:3)
 Link.create!(kind:"music",url:"https://www.youtube.com/channel/UCU7v5kTKdLacf5c4KeMempQ",user_id:3)
 
-puts("seeding collab requests")
-CollabRequest.create(requester_id:1,reciever_id:2,accepted:true)
-CollabRequest.create(requester_id:3,reciever_id:1)
-CollabRequest.create(requester_id:2,reciever_id:3)
-
-# puts("seeding collabs")
-Collab.create(collaborator_a_id: 1,collaborator_b_id:2)
