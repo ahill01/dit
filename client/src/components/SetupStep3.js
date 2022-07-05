@@ -12,7 +12,7 @@ function SetupStep3({currentStep,handleChange,handleSubmit}) {
          <select name="collab_type" onChange={handleChange}>
             <option value="casual jam buddy">casual jam buddy</option>
             <option value="tour/gig buddy">tour/gig buddy</option>
-            <option value="band member(co-writer)">band member(co-writer)</option>
+            <option value="band member (co-writer)">band member(co-writer)</option>
             <option value="band member (non co-writer)">band member(non co-writer)</option>
             <option value="whatever!">whatever!</option>
          </select>

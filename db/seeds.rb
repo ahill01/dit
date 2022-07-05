@@ -1,36 +1,36 @@
 puts("seeding users!")
  
-User.create!(name:"Phoebe",username:"Phoebe_Bridgers",password:"phebz",pronouns:"she/her",gender:"female",collab_type:"band member(co-writer)",email:"phoebefuckingbridgers@phoebefuckingbridgers.com",genre:"sad girl indie",remote:false,homebase:"Los Angeles, CA",bio:"the artist currently known as phoebe bridgers")
+User.create!(name:"Phoebe",username:"Phoebe_Bridgers",password:"phebz",pronouns:"she/her",gender:"female",collab_type:"band member (co-writer)",email:"phoebefuckingbridgers@phoebefuckingbridgers.com",genre:"sad girl indie",remote:false,homebase:"Los Angeles, CA",bio:"the artist currently known as phoebe bridgers")
 
 User.create!(name:"Lucy",username:"Lucy_Dacus",password:"nightshift",pronouns:"she/her",gender:"female",collab_type:"whatever!",email:"ldacus@gmail.com",genre:"sad girl indie",remote:false,homebase:"Chicago, IL",bio:"lucky duckus")
 
-User.create!(name:"Julien",username:"Baker_Julien",password:"SprainedAnkle221",pronouns:"she/her",gender:"female",collab_type:"band member(co-writer)",email:"julien.baker@gmail.com",genre:"sad girl indie",remote:true,homebase:"Memphis, TN",bio:"Musician from Memphis, Tennessee.")
+User.create!(name:"Julien",username:"Baker_Julien",password:"SprainedAnkle221",pronouns:"she/her",gender:"female",collab_type:"band member (co-writer)",email:"julien.baker@gmail.com",genre:"sad girl indie",remote:true,homebase:"Memphis, TN",bio:"Musician from Memphis, Tennessee.")
 
 User.create!(name:"Allison",username:"a_philharmonic",password:"musicR0cks",pronouns:"she/her",gender:"female",collab_type:"band member(co-writer)",email:"amh03160@gmail.com",genre:"indie",remote:true,homebase:"Houston, TX",bio:"just makin whatever music suits my fancy tbh")
 
-User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
+User.create(name:"Alex G",username:"alex_the_great",password:"alex_the_great",pronouns:"he/him",gender:"male",collab_type:"tour/gig buddy",email:"alexg@gmail.com",genre:"indie bastard",remote:true,homebase:"your mom's house",bio:"")
 
-User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
+User.create(name:"Tessa Violet",username:"tessa_v",password:"tessa_v",pronouns:"she/her",gender:"female",collab_type:"band member (non-co-writer)",email:"tessa@gmail.com",genre:"indie pop",remote:true,homebase:"LA",bio:"living my best life writing my best jams")
 
-User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
+User.create(name:"Nnamdi Ogbonnaya",username:"nnamdi",password:"nnamdi",pronouns:"he/him",gender:"male",collab_type:"casual jam buddy",email:"nnamdi@gmail.com",genre:"experimental indie",remote:false,homebase:"Chicago, IL",bio:"🤴🏾")
 
-User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
+User.create(name:"Mitski",username:"mitskileaks",password:"mitskileaks",pronouns:"she/her",gender:"female",collab_type:"tour/gig buddy",email:"mitskileaks@gmail.com",genre:"sad girl indie",remote:true,homebase:"Nashville, TN",bio:"i'm not wearing my usual lipstick")
 
-User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
+User.create(name:"Harry Styles",username:"hs_xo",password:"hs_xo",pronouns:"he/him",gender:"male",collab_type:"casual jam buddy",email:"hs@onedirection.com",genre:"boy bop pop",remote:true,homebase:"LA",bio:"getting watermelon sugar high on music and life babyyyyy")
 
-User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
+# User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
 
-User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
+# User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
 
-User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
+# User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
 
-User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
+# User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
 
-User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
+# User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
 
-User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
+# User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
 
-User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
+# User.create(name:"",username:"",password:"",pronouns:"",gender:"",collab_type:"",email:"",genre:"",remote:true,homebase:"",bio:"")
 
 
 puts("seeding collab requests")
